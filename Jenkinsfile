@@ -5,7 +5,7 @@ pipeline {
     stage ('docker buildd') {
       steps {
         script {
-          docker.build('eatherv/python-application:0.0.3', 'Dockerfile')
+          docker.build('eatherv/python-application:0.0.3', '.')
         }
       }
     }
