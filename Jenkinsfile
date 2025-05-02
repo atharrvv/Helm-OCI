@@ -5,14 +5,14 @@ pipeline {
     stage ('docker buildd') {
       steps {
         script {
-          
+          echo "name"
         }
       }
     }
     stage ('docker push') {
       steps {
         script {
-          
+          echo "name"
         }
       }
     }
