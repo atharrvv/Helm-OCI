@@ -1,0 +1,12 @@
+name: "python-staging-application"
+
+# Deployment
+deployment:
+  image: "docker.io/eatherv/python-application"
+  tag: "0.0.9" 
+  replicas: "3"
+  namespace: "app"
+
+# Service
+service:
+  type: "ClusterIP"
