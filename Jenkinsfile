@@ -5,14 +5,16 @@ pipeline {
     stage ('docker buildd') {
       steps {
         script {
-          echo "name"
+          docker.build('eatherv/python-application:0.0.3', './Dockerfile')
         }
       }
     }
     stage ('docker push') {
       steps {
         script {
-          echo "name"
+          docker.withRegistry('https://index.docker.io/v1/', 'docker') {
+              docker.image("eatherv/python-application:0.0.3").push()
+          }
         }
       }
     }
