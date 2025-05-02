@@ -2,7 +2,7 @@ pipeline {
   agent any 
 
   stages {
-    stage ('docker build') {
+    stage ('docker buildd') {
       steps {
         script {
           
