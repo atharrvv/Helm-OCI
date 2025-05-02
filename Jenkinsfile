@@ -18,13 +18,13 @@ pipeline {
         }
       }
     }
-   //  stage ('helm package ') {
-   //    steps {
-   //      script {
-          
-   //      }
-   //    }
-   //  }
+    stage ('helm package ') {
+      steps {
+        script {
+          sh "helm package .chart/application"
+        }
+      }
+    }
    //   stage ('helm push') {
    //    steps {
    //      script {
