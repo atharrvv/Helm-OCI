@@ -21,7 +21,7 @@ pipeline {
     stage ('helm package ') {
       steps {
         script {
-          sh "helm package ./chart/application"
+          sh "helm package ./chart/application --version 3.0.0"
         }
       }
     }
