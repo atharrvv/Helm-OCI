@@ -33,7 +33,7 @@ pipeline {
                     usernameVariable: 'USER',
                     passwordVariable: 'TOKEN'
                 )]) {
-            sh "helm registry login registry-1.docker.io -u ${USER} --password-stdin <<< ${TOKEN}"
+            sh """ helm registry login registry-1.docker.io -u ${USER} --password-stdin <<< "${TOKEN}" """
             }
           // sh "helm registry login registry-1.docker.io -u eatherv -p"
         }
