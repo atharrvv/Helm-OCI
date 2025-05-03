@@ -25,13 +25,12 @@ pipeline {
         }
       }
     }
-   //   stage ('helm push') {
-   //    steps {
-   //      script {
-          
-   //      }
-   //    }
-   // }
-  
+     stage ('helm push') {
+      steps {
+        script {
+          sh "helm push application-3.0.0.tgz oci://registry-1.docker.io/eatherv"
+        }
+      }
+    }
   }
 }
