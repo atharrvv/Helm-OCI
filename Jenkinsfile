@@ -33,18 +33,18 @@ pipeline {
                     usernameVariable: 'USER',
                     passwordVariable: 'TOKEN'
                 )]) {
-            sh """ helm registry login registry-1.docker.io -u ${USER} --password-stdin <<< "${TOKEN}" """
+            sh """ helm registry login registry-1.docker.io -u ${USER} --p ${TOKEN} """
             }
           // sh "helm registry login registry-1.docker.io -u eatherv -p"
         }
       }
     }
-    //  stage ('helm push') {
-    //   steps {
-    //     script {
-    //       sh "helm push application-3.0.0.tgz oci://registry-1.docker.io/eatherv"
-    //     }
-    //   }
-    // }
+     stage ('helm push') {
+      steps {
+        script {
+          sh "helm push application-3.0.0.tgz oci://registry-1.docker.io/eatherv"
+        }
+      }
+    }
   }
 }
