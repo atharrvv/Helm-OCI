@@ -24,13 +24,13 @@ pipeline {
     //     }
     //   }
     // }
-    // stage ('helm package ') {
-    //   steps {
-    //     script {
-    //       sh "helm package ./chart/application --version 3.0.0"
-    //     }
-    //   }
-    // }
+    stage ('helm package ') {
+      steps {
+        script {
+          sh "helm package ./chart/application --version ${CHART_VERSION}"
+        }
+      }
+    }
     stage ("Helm Docker Login") {
       steps {
         script {
