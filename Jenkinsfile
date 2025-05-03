@@ -28,7 +28,14 @@ pipeline {
     stage ("Helm Docker Login") {
       steps {
         script {
-          sh "helm registry login registry-1.docker.io -u eatherv -p dckr_pat_uxKuU-bo_5nqscqyxht2lYFfTtY"
+          withCredentials([usernamePassword(
+                    credentialsId: 'docker',  // Update with your Jenkins credential ID
+                    usernameVariable: 'USER',
+                    passwordVariable: 'TOKEN'
+                )]) {
+            sh "helm registry login registry-1.docker.io -u ${USER} -p ${TOKEN}"
+            }
+          // sh "helm registry login registry-1.docker.io -u eatherv -p"
         }
       }
     }
