@@ -1,6 +1,12 @@
 pipeline {
   agent any 
 
+  environment {
+    CHART_NAME = "application"
+    CHART_VERSION = "4.0.0"
+    OCI_REGISTRY = "oci://registry-1.docker.io/eatherv"
+  }
+
   stages {
     // stage ('docker buildd') {
     //   steps {
@@ -42,7 +48,7 @@ pipeline {
      stage ('helm push') {
       steps {
         script {
-          sh "helm push application-3.0.0.tgz oci://registry-1.docker.io/eatherv"
+          sh "helm push ${CHART_NAME}-${CHART_VERSION}.tgz ${OCI_REGISTRY}"
         }
       }
     }
