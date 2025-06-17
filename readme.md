@@ -1,4 +1,4 @@
-##### Deploying Helm Charts Through FluxCD while storing on OCI Repository! DockerHub
+# Deploying Helm Charts Through FluxCD while storing on OCI Repository! DockerHub
 
 ### The idea was to Deploy helm chart through Flux with image update automation but as the core maintainer of flux stated that “highly inefficient and error prone”
 
